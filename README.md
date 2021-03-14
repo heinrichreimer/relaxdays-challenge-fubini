@@ -1,7 +1,6 @@
-# 🧑‍💻 relaxdays-challenge
+# 🧑‍💻 relaxdays-challenge-fubini
 
-Template project for tasks of the Relaxdays Code Challenge Vol. 1.
-Replace `<PORT>` and `<COMMAND>` with appropriate values after forking.
+Calculate a sequence of fubini numbers.
 
 This project was created in the Relaxdays Code Challenge Vol. 1.
 See the [hackathon homepage](https://sites.google.com/relaxdays.de/hackathon-relaxdays/startseite) for more information.
@@ -12,8 +11,8 @@ My participant ID in the challenge was: `CC-VOL1-54`
 First you need to clone this repository:
 
 ```shell script
-git clone https://github.com/heinrichreimer/relaxdays-challenge.git
-cd relaxdays-challenge/
+git clone https://github.com/heinrichreimer/relaxdays-challenge-fubini.git
+cd relaxdays-challenge-fubini/
 ```
 
 ### Docker container
@@ -22,33 +21,29 @@ cd relaxdays-challenge/
 1. Build a Docker container with this project:
 
     ```shell script
-    docker build -t relaxdays-challenge .
+    docker build -t relaxdays-challenge-fubini .
     ```
 
-1. Start the Docker container:
+1. Calculate first 10 fubini numbers:
 
     ```shell script
-    docker run -v $(pwd):/app -p <PORT>:<PORT> -it relaxdays-challenge
+    docker run -it relaxdays-challenge-fubini 10
     ```
-
-1. The app is now running on [`localhost:<PORT>`](http://localhost:<PORT>/)
 
 ### Local machine
 
-1. Install [Python 3](https://python.org/downloads/), [pipx](https://pipxproject.github.io/pipx/installation/#install-pipx), and [Pipenv](https://pipenv.pypa.io/en/latest/install/#isolated-installation-of-pipenv-with-pipx)
-1. Install dependencies:
+1. Install [Julia](https://julialang.org/downloads/).
+1. Install dependencies.
 
     ```shell script
-    pipenv install
+    julia --eval 'using Pkg; Pkg.add("Combinatorics")'
     ```
 
-1. Run the notebook:
+1. Calculate first 10 fubini numbers:
 
     ```shell script
-    pipenv run <COMMAND>
+    julia fubini.jl 10
     ```
-
-1. The app is now running on [`localhost:<PORT>`](http://localhost:<PORT>/)
 
 ## License
 

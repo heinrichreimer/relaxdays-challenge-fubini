@@ -1,11 +1,9 @@
-FROM python:3.8
+FROM julia:1.5
 
 WORKDIR /app
 
-RUN pip install pipenv
-COPY Pipfile Pipfile.lock /app/
-RUN pipenv install --system --deploy
+RUN julia --eval 'using Pkg; Pkg.add("Combinatorics")'
 
-# TODO Build project source and dependencies.
+COPY fubini.jl ./
 
-# TODO Specify end point.
+ENTRYPOINT [ "julia", "fubini.jl" ]
