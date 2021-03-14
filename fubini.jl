@@ -1,5 +1,4 @@
 using Combinatorics
-using LRUCache
 
 const stirlings2_cache = Dict{Pair{Int, Int}, BigInt}()
  
@@ -59,9 +58,9 @@ end
 
 
 function print_fubinis(n::Int)
-    @time begin
+    # @time begin
         print("[")
-        for i in 2:n
+        for i in 1:n
             if i > 1
                 print(", ")
             end
@@ -69,7 +68,7 @@ function print_fubinis(n::Int)
         end
         print("]")
         println()
-    end
+    # end
 end
 
 
